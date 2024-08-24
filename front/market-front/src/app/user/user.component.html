@@ -1,0 +1,35 @@
+<div class="container mt-4">
+  @if (user) {
+    <div>
+      <h2>User Details</h2>
+      @if (!isEditing) {
+        <div>
+          <p><strong>Email:</strong> {{ user.email }}</p>
+          <p><strong>Password:</strong> {{ user.password }}</p>
+          <button (click)="toggleEdit()" class="btn btn-primary">Edit</button>
+        </div>
+      }
+      @if (isEditing) {
+        <div>
+          <form (ngSubmit)="save()">
+            <div class="mb-3">
+              <label for="email" class="form-label">Email</label>
+              <input type="email" id="email" class="form-control" [(ngModel)]="user.email" name="email" required>
+            </div>
+            <div class="mb-3">
+              <label for="password" class="form-label">Password</label>
+              <input type="text" id="password" class="form-control" [(ngModel)]="user.password" name="password" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Save</button>
+            <button (click)="toggleEdit()" class="btn btn-secondary">Cancel</button>
+          </form>
+        </div>
+      }
+    </div>
+  }
+  @if (!user) {
+    <div>
+      <p>Loading...</p>
+    </div>
+  }
+</div>
