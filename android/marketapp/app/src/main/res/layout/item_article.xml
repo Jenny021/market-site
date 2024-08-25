@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <variable
+            name="article"
+            type="com.example.market_app.Article" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="8dp">
+
+        <TextView
+            android:id="@+id/articleName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{article.name}" />
+
+        <TextView
+            android:id="@+id/articleCost"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text='@{String.valueOf(article.cost)}' />
+    </LinearLayout>
+</layout>

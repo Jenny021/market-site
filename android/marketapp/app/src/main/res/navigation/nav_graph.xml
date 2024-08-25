@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/loginFragment">
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.market_app.LoginFragment"
+        android:label="Login"
+        tools:layout="@layout/fragment_login">
+        <action
+            android:id="@+id/action_loginFragment_to_registerFragment"
+            app:destination="@id/registerFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_articleListFragment"
+            app:destination="@id/articleListFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="com.example.market_app.RegisterFragment"
+        android:label="Register"
+        tools:layout="@layout/fragment_register">
+        <action
+            android:id="@+id/action_registerFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_registerFragment_to_articleListFragment"
+            app:destination="@id/articleListFragment" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/articleListFragment"
+        android:name="com.example.market_app.ArticleListFragment"
+        android:label="Article List"
+        tools:layout="@layout/fragment_article_list" >
+        <action
+            android:id="@+id/action_articleListFragment_to_articleDetailFragment"
+            app:destination="@id/articleDetailFragment" />
+        <action
+            android:id="@+id/action_articleListFragment_to_newArticleFragment"
+            app:destination="@id/newArticleFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/articleDetailFragment"
+        android:name="com.example.market_app.ArticleDetailFragment">
+        <argument
+            android:name="article"
+            app:argType="com.example.market_app.Article" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/newArticleFragment"
+        android:name="com.example.market_app.NewArticleFragment"
+        android:label="New Article">
+        <argument
+            android:name="article"
+            app:argType="com.example.market_app.Article"
+            android:defaultValue="@null" />
+        <action
+            android:id="@+id/action_newArticleFragment_to_articleListFragment"
+            app:destination="@id/articleListFragment" />
+    </fragment>
+</navigation>

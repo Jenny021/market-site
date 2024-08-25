@@ -48,7 +48,7 @@ public class UserServices {
             if (optional.isEmpty())
                 return new ResponseEntity<>(HttpStatus.NOT_FOUND);
             User user = optional.get();
-            if (user.getPassword() != entity.getPassword())
+            if (!entity.getPassword().equals(user.getPassword()))
                 return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
             return new ResponseEntity<>(user, HttpStatus.OK);
         } catch (Exception e) {
